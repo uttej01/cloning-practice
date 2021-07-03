@@ -1,0 +1,23 @@
+kind: DaemonSet
+apiVersion: apps/v1
+metadata:
+  name: ds1
+  #labels:
+
+spec:
+  selector:
+    matchLabels:
+      role: app
+  template:
+    metadata:
+      #name: test
+      labels:
+        role: app
+    spec:
+      containers:
+        - name: cont1
+          image: lerndevops/samplepyapp:v1
+          ports:
+            - name: http
+              containerPort: 3000
+
